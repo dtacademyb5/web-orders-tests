@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/Nuclues/IdeaProjects/weborders-automation-tests">
+        <classes>
+            <class name="DBTests.DBConnection">
+                <methods>
+                    <include name="connectToDb1"/>
+                    <include name="connectToDb2"/>
+                    <include name="connectToDb3"/>
+                    <include name="connectToDb4"/>
+                </methods>
+            </class>
+            <class name="DBTests.DBConnectionClose">
+                <methods>
+                    <include name="connectToDb1"/>
+                    <include name="connectToDb2"/>
+                    <include name="connectToDb3"/>
+                    <include name="connectToDb4"/>
+                </methods>
+            </class>
+            <class name="UITests.LoginTests">
+                <methods>
+                    <include name="positiveLoginTest"/>
+                    <include name="negativeLoginTestWithWrongCredentials"/>
+                    <include name="negativeLoginTestWithNoCredentials"/>
+                </methods>
+            </class>
+            <class name="UITests.LoginTests2">
+                <methods>
+                    <include name="positiveLoginTest"/>
+                    <include name="negativeLoginTestWithWrongCredentials"/>
+                    <include name="negativeLoginTestWithNoCredentials"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

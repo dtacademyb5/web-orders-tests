@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test name="Chrome Tests">
+       <classes>
+           <class name="DBTests.DBConnection">
+               <methods>
+
+<!--                   <include name="connectToDb.*"></include>-->
+                  <!--starts with-->
+<!--                   <include name=".*_DB"></include>-->
+                   <!--ends with-->
+                   <include name=".*Db.*"></include>
+                   <!--contains-->
+
+
+               </methods>
+           </class>
+
+
+       </classes>
+    </test>
+
+
+
+
+
+
+</suite>

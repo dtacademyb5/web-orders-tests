@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test name="Chrome Tests">
+       <classes>
+           <class name="UITests.LoginTests">
+               <methods>
+
+                   <include name="negativeLoginTestWithWrongCredentials"></include>
+                   <include name="negativeLoginTestWithNoCredentials"></include>
+               </methods>
+           </class>
+
+           <class name="DBTests.DBConnection">
+               <methods>
+
+                   <exclude name="connectToDb1"></exclude>
+
+               </methods>
+           </class>
+       </classes>
+    </test>
+
+
+
+<!--    <test name="Firefox Tests">-->
+<!--        <classes>-->
+<!--            <class name="UITests.LoginTests">-->
+<!--                <methods>-->
+
+<!--                    <include name="negativeLoginTestWithWrongCredentials"></include>-->
+<!--                    <include name="negativeLoginTestWithNoCredentials"></include>-->
+<!--                </methods>-->
+<!--            </class>-->
+
+<!--            <class name="DBTests.DBConnection">-->
+<!--                <methods>-->
+
+<!--                    <exclude name="connectToDb1"></exclude>-->
+
+<!--                </methods>-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+
+
+
+
+</suite>
