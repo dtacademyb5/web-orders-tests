@@ -7,9 +7,10 @@ import org.testng.annotations.Test;
 
 import java.lang.reflect.Method;
 
+@Test (groups = {"db"})
 public class DBConnection {
 
-    @Test
+    @Test (groups = {"smoke"})
     public void connectToDb1(){
         System.out.println("Db connection test 1");
                Assert.assertTrue(true);

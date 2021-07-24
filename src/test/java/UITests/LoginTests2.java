@@ -77,14 +77,14 @@ public class LoginTests2 {
         Assert.assertTrue(driver.getTitle().equals("Web Orders"));
     }
 
-    @Test (priority = -1000)
+    @Test (priority = -1000, groups = {"smoke"})
     public void negativeLoginTestWithWrongCredentials(Method m){
         System.out.println(m.getName());
         driver.findElement(By.id("ctl00_MainContent_username")).sendKeys("SDET", Keys.TAB, "Tester", Keys.ENTER);
         Assert.assertFalse(driver.getTitle().equals("Web Orders"));
     }
 
-    @Test (priority = 3)
+    @Test (priority = 3, groups = {"uitests"})
     public void negativeLoginTestWithNoCredentials(Method m){
         System.out.println(m.getName());
         driver.findElement(By.id("ctl00_MainContent_username")).sendKeys("", Keys.TAB, "", Keys.ENTER);

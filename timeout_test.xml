@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" time-out="500" verbose="10" >
+<!--    you can apply global timeout in xml file at suite level with time-out attribute -->
+    <test name="weborders-automation-tests">
+        
+        <packages>
+            
+            <package name="DBTests"></package>
+
+        </packages>
+       
+    </test>
+</suite>
