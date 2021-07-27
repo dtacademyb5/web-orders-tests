@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test name="weborders-automation-tests">
+
+        <parameter name="url" value="http://secure.smartbearsoftware.com/samples/TestComplete12/WebOrders/Login.aspx"></parameter>
+        <parameter name="firstName" value="Rafael"></parameter>
+        <parameter name="lastName" value="Aziz"></parameter>
+        <parameter name="age" value="33"></parameter>
+        <parameter name="user" value="Tester"></parameter>
+        <parameter name="pass" value="test"></parameter>
+
+       <classes>
+
+
+           <class name="uitests.ParametrizedTests"></class>
+
+
+
+       </classes>
+
+    </test>
+</suite>

@@ -3,7 +3,7 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="C:/Users/Nuclues/IdeaProjects/weborders-automation-tests">
         <classes>
-            <class name="DBTests.DBConnection">
+            <class name="dbtests.DBConnection">
                 <methods>
                     <include name="connectToDb1"/>
                     <include name="connectToDb2"/>
@@ -11,7 +11,7 @@
                     <include name="connectToDb4"/>
                 </methods>
             </class>
-            <class name="DBTests.DBConnectionClose">
+            <class name="dbtests.DBConnectionClose">
                 <methods>
                     <include name="connectToDb1"/>
                     <include name="connectToDb2"/>
@@ -19,14 +19,14 @@
                     <include name="connectToDb4"/>
                 </methods>
             </class>
-            <class name="UITests.LoginTests">
+            <class name="uitests.LoginTests">
                 <methods>
                     <include name="positiveLoginTest"/>
                     <include name="negativeLoginTestWithWrongCredentials"/>
                     <include name="negativeLoginTestWithNoCredentials"/>
                 </methods>
             </class>
-            <class name="UITests.LoginTests2">
+            <class name="uitests.LoginTests2">
                 <methods>
                     <include name="positiveLoginTest"/>
                     <include name="negativeLoginTestWithWrongCredentials"/>

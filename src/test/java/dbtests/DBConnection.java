@@ -1,11 +1,7 @@
-package DBTests;
+package dbtests;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.lang.reflect.Method;
 
 @Test (groups = {"db"})
 public class DBConnection {

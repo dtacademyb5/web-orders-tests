@@ -5,8 +5,8 @@
 
        <classes>
 
-           <class name="DBTests.DBConnection"></class>
-           <class name="UITests.LoginTests"></class>
+           <class name="dbtests.DBConnection"></class>
+           <class name="uitests.LoginTests"></class>
 
 
 

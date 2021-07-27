@@ -1,4 +1,4 @@
-package DBTests;
+package dbtests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;

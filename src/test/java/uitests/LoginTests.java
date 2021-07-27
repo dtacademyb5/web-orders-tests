@@ -1,4 +1,4 @@
-package UITests;
+package uitests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -11,7 +11,7 @@ import org.testng.annotations.*;
 import java.lang.reflect.Method;
 import java.util.concurrent.TimeUnit;
 
-public class LoginTests2 {
+public class LoginTests {
     private WebDriver driver;
 
     @BeforeSuite
@@ -70,21 +70,21 @@ public class LoginTests2 {
     }
 
 
-    @Test (priority = 5, enabled = false)
+    @Test (priority = 5, groups = {"smoke", "uitests"})
     public void positiveLoginTest(Method m){  // Method class is used to get the name of the method programmatically
         System.out.println(m.getName());
         driver.findElement(By.id("ctl00_MainContent_username")).sendKeys("Tester", Keys.TAB, "test", Keys.ENTER);
         Assert.assertTrue(driver.getTitle().equals("Web Orders"));
     }
 
-    @Test (priority = -1000, groups = {"smoke"})
+    @Test (priority = -1000,enabled = false)
     public void negativeLoginTestWithWrongCredentials(Method m){
         System.out.println(m.getName());
         driver.findElement(By.id("ctl00_MainContent_username")).sendKeys("SDET", Keys.TAB, "Tester", Keys.ENTER);
         Assert.assertFalse(driver.getTitle().equals("Web Orders"));
     }
 
-    @Test (priority = 3, groups = {"uitests"})
+    @Test (priority = 3, groups = {"smoke"})
     public void negativeLoginTestWithNoCredentials(Method m){
         System.out.println(m.getName());
         driver.findElement(By.id("ctl00_MainContent_username")).sendKeys("", Keys.TAB, "", Keys.ENTER);

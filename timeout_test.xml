@@ -6,7 +6,7 @@
         
         <packages>
             
-            <package name="DBTests"></package>
+            <package name="dbtests"></package>
 
         </packages>
        

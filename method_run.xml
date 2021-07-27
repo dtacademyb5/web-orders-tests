@@ -3,7 +3,7 @@
 <suite name="All Test Suite">
     <test name="Chrome Tests">
        <classes>
-           <class name="UITests.LoginTests">
+           <class name="uitests.LoginTests">
                <methods>
 
                    <include name="negativeLoginTestWithWrongCredentials"></include>
@@ -11,7 +11,7 @@
                </methods>
            </class>
 
-           <class name="DBTests.DBConnection">
+           <class name="dbtests.DBConnection">
                <methods>
 
                    <exclude name="connectToDb1"></exclude>
@@ -25,7 +25,7 @@
 
 <!--    <test name="Firefox Tests">-->
 <!--        <classes>-->
-<!--            <class name="UITests.LoginTests">-->
+<!--            <class name="uitests.LoginTests">-->
 <!--                <methods>-->
 
 <!--                    <include name="negativeLoginTestWithWrongCredentials"></include>-->
@@ -33,7 +33,7 @@
 <!--                </methods>-->
 <!--            </class>-->
 
-<!--            <class name="DBTests.DBConnection">-->
+<!--            <class name="dbtests.DBConnection">-->
 <!--                <methods>-->
 
 <!--                    <exclude name="connectToDb1"></exclude>-->

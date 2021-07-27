@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
+
     <test name="weborders-automation-tests">
-        
-        <packages>
-            
-            <package name="dbtests"></package>
-            <package name="uitests"></package>
-        </packages>
-       
+        <parameter name="browser" value="edge"></parameter>
+       <classes>
+           <class name="uitests.ParametrizedTests2"></class>
+       </classes>
     </test>
+
+
+
+
 </suite>

@@ -15,7 +15,7 @@
 
         <classes>
 
-            <class name="UITests.LoginTests"></class>
+            <class name="uitests.LoginTests"></class>
         </classes>
 
     </test>
