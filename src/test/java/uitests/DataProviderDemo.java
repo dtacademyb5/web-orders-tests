@@ -6,23 +6,23 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.util.Random;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class DataProviderDemo {
-    WebDriver wd;
+    WebDriver driver;
 
     @Test (dataProvider = "getData")    //(dataProvider = "socks")
     public  void testGoogle(String searchTerm){
 
 
         WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
+        driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get("https://www.google.com/");
@@ -38,22 +38,22 @@ public class DataProviderDemo {
     public void placeOrder(String name, String address, String city, String state, int zip, long cardNo, String expiry ){
 
         WebDriverManager.chromedriver().setup();
-       wd = new ChromeDriver();
-        wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        wd.manage().window().maximize();
+       driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
 
 
-        wd.navigate().to("http://secure.smartbearsoftware.com/samples/TestComplete12/WebOrders/Login.aspx");
+        driver.navigate().to("http://secure.smartbearsoftware.com/samples/TestComplete12/WebOrders/Login.aspx");
 //
-        wd.findElement(By.id("ctl00_MainContent_username")).sendKeys("Tester", Keys.TAB, "test", Keys.ENTER);
+        driver.findElement(By.id("ctl00_MainContent_username")).sendKeys("Tester", Keys.TAB, "test", Keys.ENTER);
 //
-        wd.findElement(By.linkText("Order")).click();
+        driver.findElement(By.linkText("Order")).click();
         int randomQuantity = (int) (Math.random() * 99) + 1;
-        wd.findElement(By.id("ctl00_MainContent_fmwOrder_txtQuantity"))
+        driver.findElement(By.id("ctl00_MainContent_fmwOrder_txtQuantity"))
                 .sendKeys(Keys.BACK_SPACE, String.valueOf(randomQuantity), Keys.ENTER);
 //
 
-        wd.findElement(By.id("ctl00_MainContent_fmwOrder_txtName")).
+        driver.findElement(By.id("ctl00_MainContent_fmwOrder_txtName")).
                 sendKeys(name,
                         Keys.TAB, address,
                         Keys.TAB, city,
@@ -61,17 +61,17 @@ public class DataProviderDemo {
                         Keys.TAB, ""+zip);
 //
 
-        wd.findElement(By.id("ctl00_MainContent_fmwOrder_cardList_0")).click();
+        driver.findElement(By.id("ctl00_MainContent_fmwOrder_cardList_0")).click();
 //
 
 
-       wd.findElement(By.id("ctl00_MainContent_fmwOrder_TextBox6")).sendKeys(""+cardNo);
+       driver.findElement(By.id("ctl00_MainContent_fmwOrder_TextBox6")).sendKeys(""+cardNo);
 
-        wd.findElement(By.id("ctl00_MainContent_fmwOrder_TextBox1")).sendKeys(expiry);
+        driver.findElement(By.id("ctl00_MainContent_fmwOrder_TextBox1")).sendKeys(expiry);
 //
-        wd.findElement(By.id("ctl00_MainContent_fmwOrder_InsertButton")).click();
+        driver.findElement(By.id("ctl00_MainContent_fmwOrder_InsertButton")).click();
 //
-        Assert.assertTrue(wd.getPageSource().contains("New order has been successfully added."));
+        Assert.assertTrue(driver.getPageSource().contains("New order has been successfully added."));
 //
 
 
@@ -79,8 +79,13 @@ public class DataProviderDemo {
     }
 
     @AfterMethod
-    public void teardown(){
-        wd.quit();
+    public void teardown(ITestResult result) throws IOException {
+
+        if(result.getStatus()==ITestResult.FAILURE){
+           Utilities.takeScreenshot(driver, "failedTest.png");
+        }
+
+        driver.quit();
     }
 
 

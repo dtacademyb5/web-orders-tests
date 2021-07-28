@@ -12,7 +12,7 @@ public class DBConnection {
                Assert.assertTrue(true);
     }
 
-    @Test
+    @Test (successPercentage = 80)
     public void connectToDb2(){
         System.out.println("Db connection test 2");
         Assert.assertTrue(true);
