@@ -7,8 +7,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
+import utilities.ConfigReader;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class LoginTests {
@@ -54,13 +59,20 @@ public class LoginTests {
     }
 
     @BeforeMethod
-    public void setupMethod(){
+    public void setupMethod() throws IOException {
 
-        System.out.println("Before Method");
+
+
+
+
+
+
+
+
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Long.parseLong(ConfigReader.readProperty("implicitTimeout")), TimeUnit.SECONDS);
         driver.manage().window().maximize();
-        driver.get("http://secure.smartbearsoftware.com/samples/TestComplete12/WebOrders/Login.aspx");
+        driver.get(ConfigReader.readProperty("url"));
 
 
     }
@@ -75,7 +87,7 @@ public class LoginTests {
     @Test (priority = 5, groups = {"smoke", "uitests"})
     public void positiveLoginTest(Method m){  // Method class is used to get the name of the method programmatically
         System.out.println(m.getName());
-        driver.findElement(By.id("ctl00_MainContent_username")).sendKeys("Tester", Keys.TAB, "test", Keys.ENTER);
+        driver.findElement(By.id("ctl00_MainContent_username")).sendKeys(ConfigReader.readProperty("username"), Keys.TAB, ConfigReader.readProperty("password"), Keys.ENTER);
         Assert.assertTrue(driver.getTitle().equals("Web Orders"));
     }
 

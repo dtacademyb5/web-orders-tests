@@ -80,11 +80,9 @@ public class DataProviderDemo {
 
     @AfterMethod
     public void teardown(ITestResult result) throws IOException {
-
         if(result.getStatus()==ITestResult.FAILURE){
            Utilities.takeScreenshot(driver, "failedTest.png");
         }
-
         driver.quit();
     }
 
