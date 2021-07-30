@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import utilities.ConfigReader;
+import utilities.Driver;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
@@ -24,8 +25,8 @@ public class LoginTestsMultipleDrivers {
     public void setupMethod() throws IOException {
 
 
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+
+        driver = Driver.getDriver();
         driver.manage().timeouts().implicitlyWait(Long.parseLong(ConfigReader.readProperty("implicitTimeout")), TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get(ConfigReader.readProperty("url"));
@@ -36,14 +37,15 @@ public class LoginTestsMultipleDrivers {
     @AfterMethod
     public void tearDownMethod(){
         System.out.println("After Method");
-        driver.quit();
+        Driver.quit();
     }
 
 
     @Test ()
-    public void positiveLoginTest(){  // Method class is used to get the name of the method programmatically
+    public void positiveLoginTest() throws InterruptedException {  // Method class is used to get the name of the method programmatically
 
         driver.findElement(By.id("ctl00_MainContent_username")).sendKeys(ConfigReader.readProperty("username"), Keys.TAB, ConfigReader.readProperty("password"), Keys.ENTER);
+        Thread.sleep(1000);
         Assert.assertTrue(driver.getTitle().equals("Web Orders"));
     }
 
@@ -63,9 +65,12 @@ public class LoginTestsMultipleDrivers {
 
     @Test ()
     public void aTest(){  // Method class is used to get the name of the method programmatically
-        WebDriver driver = new ChromeDriver();
-        driver.get(ConfigReader.readProperty("url"));
-        driver.findElement(By.id("ctl00_MainContent_username")).sendKeys(ConfigReader.readProperty("username"), Keys.TAB, ConfigReader.readProperty("password"), Keys.ENTER);
+
+        Driver.getDriver().get(ConfigReader.readProperty("url"));
+        Driver.getDriver().findElement(By.id("ctl00_MainContent_username")).sendKeys(ConfigReader.readProperty("username"), Keys.TAB, ConfigReader.readProperty("password"), Keys.ENTER);
+
+
+
         Assert.assertTrue(driver.getTitle().equals("Web Orders"));
     }
 

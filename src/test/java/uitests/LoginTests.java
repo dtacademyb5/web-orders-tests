@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import utilities.ConfigReader;
+import utilities.Driver;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -69,7 +70,7 @@ public class LoginTests {
 
 
 
-        driver = new ChromeDriver();
+        driver = Driver.getDriver();
         driver.manage().timeouts().implicitlyWait(Long.parseLong(ConfigReader.readProperty("implicitTimeout")), TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get(ConfigReader.readProperty("url"));
