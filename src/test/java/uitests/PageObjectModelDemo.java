@@ -81,7 +81,7 @@ public class PageObjectModelDemo {
 
         AllOrdersPage allOrdersPage = new AllOrdersPage();
 
-        int size = allOrdersPage.allCheckBoxes.size();
+        int size = allOrdersPage.checkboxes.size();
 
         Assert.assertTrue( size == 8);
 
