@@ -26,7 +26,7 @@ public class AllOrdersPage {
 
 
     @FindBy(xpath = "//input[@type='checkbox']")
-    public List<WebElement> allCheckBoxes;
+    public List<WebElement> checkboxes;
 
 
     @FindBy(xpath = "//a[.='Order']")
