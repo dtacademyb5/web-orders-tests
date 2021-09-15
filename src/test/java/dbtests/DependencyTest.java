@@ -26,6 +26,12 @@ public class DependencyTest {
         System.out.println("test 3");
         Assert.assertTrue(true);
     }
+    
+     @Test
+    public void test445(){
+        System.out.println("test 3");
+        Assert.assertTrue(true);
+    }
 
     @Test(dependsOnMethods = {"test1", "test3"})
     public void test2(){
